@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+//    border: 1px solid red;  
+}
+
+$theme: #efb294;
+$darker: #db7557;
+$text: #999;
+
+
+@mixin links{
+    color: #fff;
+    text-decoration: none;
+}
+ 
+@mixin shadow{
+    text-shadow: 0 2px 2px #000;
+}
+
+@mixin columns{
+	text-align: center;
+    width: 23%;
+}
+
+body,
+ul
+    {
+    margin: 0;  
+    padding: 0;  
+}
+
+body{
+    background-color: #fff;
+}
+
+html{
+	font-size:16px; 
+	font-family: 'Roboto', sans-serif;
+    color: $text;
+    background-color: #fff;
+}
+
+.container{
+	max-width: 960px;
+	margin: 0 auto;  
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+section{
+	padding: 20px;
+}
+
+/*start hero content */
+.hero{
+	background-size: cover; 
+	background-position: center; 
+    opacity: 0.75; // ar cia palikt opacity?
+    padding: 0;
+    min-height: 90vh;
+}
+
+.hero .hero-content{ 
+    padding: 200px 0;
+}
+
+.hero-content{
+    text-align: center;
+    color: #fff; 
+    line-height: 1;
+    @include shadow;
+    h1{
+        font-size: 4rem; 
+        margin: 0;
+        font-family: 'Roboto Slab', serif;
+        &::after{ 
+            content: ""; 
+            display: block; 
+            width: 240px;
+            border-bottom: 2px solid #fff; 
+            margin: 0 auto 20px;
+            padding-bottom: 20px;
+            }
+    }
+    h4{
+        font-size: 1.75rem; 
+        font-weight: 700;
+    }
+}
+/*end hero content*/
+
+/*start navigation*/
+.burger {
+    display: none;
+}
+ 
+.navigation{ 
+    background-color: $theme;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 30px;
+    z-index: 1;
+}
+
+.navigation ul{
+    list-style: none;
+}
+
+.navigation a{
+    @include links;
+    text-transform: uppercase;
+    
+    &:hover {
+    background-color: $darker;
+    }
+    
+}
+
+.menu a{
+    padding: 30px 35px 35px;
+}
+
+.social-nav a{
+    font-size: 1.25rem;
+    padding: 30px 20px; 
+}
+/*end navigation*/
+
+/*content start*/ 
+p{
+    text-align: center;
+}
+
+h2{
+    font-size: 1.75rem;
+    border-left: 6px solid $darker;
+    padding: 3px;
+    font-weight: 700;
+}
+
+h3{
+    color: $darker;
+    font-size: 1.5rem;
+}
+
+.tours .column,
+.guides .column{
+    @include columns;
+}
+
+
+.guides img{
+    max-width: 80%;
+    border-radius: 50%;
+}
+
+.tours .flex-container,
+.guides .flex-container,
+.navigation .flex-container,
+            {
+    flex-wrap: wrap;
+}
+/*content end*/
+
+/*start of contact box*/
+
+input, 
+textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+/*submit button*/
+input[type=submit] {
+    width: 20%;
+    color: $text;
+    background-color: #fff;
+    padding: 12px 10px;
+    margin: 10px 40% 20px;
+    border: 3px solid $theme;
+    border-radius: 4px;
+    cursor: pointer;
+                 
+    &:hover {
+        color: #fff;
+        background-color: $darker;
+        border: 3px solid $darker;    
+    }  
+} 
+/*end of contact box*/
+ 
+/*footer start*/
+
+footer{
+    background-color: $theme;
+    padding: 10px;
+    p { 
+        margin: 3px;
+        font-size: 0.8rem;
+    }
+    
+    a {
+        justify-content: center;
+        text-decoration: none;
+        color: #fff;
+    }  
+}
+/*footer end*/
+
+/*responsive*/
+@import "responsive"
+
